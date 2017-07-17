@@ -1,0 +1,965 @@
+/*
+Theme Name: Mint and Marzipan
+Theme URI: http://underscores.me/
+Author: Chris Rune
+Author URI: https://github.com/gtrabbit
+Description: a simple responsive theme, geared toward restaurants
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: mint-and-marzipan
+Tags: brown, green, mint, pink, chocolate, flexible-width, one-column, two-columns
+
+
+
+Mint and Marzipan is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation li {
+	float: left;
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul ul li {
+
+}
+
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+}
+
+.main-navigation ul ul :hover > a,
+.main-navigation ul ul .focus > a {
+}
+
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a.focus {
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a,
+.main-navigation .current-menu-ancestor > a {
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+
+
+
+/* ===============Custom CSS============ */
+
+
+/* Basic Styles */
+
+/* reset */
+body, nav, ul, header, footer{
+	margin: 0px;
+	padding: 0px;
+}
+
+a{
+	color: white;
+}
+
+h1, h2, h3{ 
+	margin: 0px;
+	padding: 0px;
+	font-family: Lobster, cursive;
+	text-rendering: optimizeLegibility;
+ }
+
+p{
+	font-family: Spectral, serif;
+}
+
+/* social media icons */
+
+.socialHolder {
+	background: #ccc;
+	font-size: 30px;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	padding: 2px;
+	margin: .5%;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50%;
+	color: white;
+	opacity: 0.5;
+} 
+
+
+.socialHolder:hover {
+	transform: scale(1.2);
+	opacity: 1;
+}
+.socialHolder.fb{
+	background: #3b5998;
+}
+.socialHolder.twt{
+	background: #55acee;
+}
+.socialHolder.gplus{
+	background: #db4b39;
+	font-size: 25px;
+}
+.socialHolder.pint{
+	background: #cb2027;
+}
+.socialHolder.inst{
+	background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF)
+}
+
+/* flex stuff */
+
+.flexDad{
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	height: auto;
+	justify-content: space-around;
+}
+
+.small{
+	font-size: 5vh;
+}
+
+.flexDad-nowrap{
+	display: flex;
+	padding: 0.5%;
+	justify-content: space-around;
+}
+
+.fvAlign{
+	align-content: space-around;
+}
+
+.flexKid{
+	flex-grow: 1;
+	width: 500px;
+	margin: 2%;
+}
+
+.alignBot{
+	align-self: flex-end;
+}
+
+/* utility */
+.bigCaption{
+	color: white;
+	font-size: 12vh;
+	background-color: rgba(200,200,200,.6);
+	padding: 0.5%;
+}
+
+.card{
+	width: 90%;
+	box-shadow: 0px 4px 13px 0px rgba(200,200,200,0.5);
+	padding: 2%;
+	border-radius: 0px 0px 5px 5px; 
+}
+
+.fullPage{
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.fullWidth{
+	width: 100%;
+}
+
+
+.bottom{
+	position: absolute;
+	bottom: 0%;
+	width: 100%;
+
+}
+.half{
+	width: 70%;	
+}
+.centered{
+	text-align: center;
+}
+.centerBlock{
+	display: block;
+	margin: auto;
+}
+
+.fullSizeBackground{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.smoosh{
+	justify-content: center;
+}
+
+/* img styles */
+
+.img{
+	border-radius: 10px;
+	border: solid black 2px;
+	width: 95%;
+}
+
+.imgHolder{
+	padding: 2% 1%;
+	box-shadow: 0px 4px 13px 0px rgba(200,200,200,1);
+	border-radius: 10px;
+}
+
+.tinyCircle{
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	border: double rgba(69,34,23,0.4) 3px;
+	margin: 0px 5px;
+	cursor: pointer;
+	background-clip: content-box;
+}
+
+.tinyCircle.active{
+	background-color: rgba(145,82,63,0.4);
+	cursor: initial;
+} 
+
+/* Nav Styles */
+nav{
+	position: fixed;
+	z-index: 30;
+	width: 100vw;
+	font-size: 12px;
+}
+
+
+.nav-menu{
+	background-color: rgba(20, 10, 5, 1);
+	color: white;
+	border-bottom: solid rgba(145,82,63,0.4) 4px;
+	display: flex;
+	opacity: 0;
+	transition: opacity .5s;
+	padding: 0px 0px;
+	justify-content: space-around;
+}
+
+.nav-item-holder{
+	display: flex;
+	flex-grow: 7;
+	justify-content: flex-start;
+	flex-wrap: wrap-reverse;
+}
+.nav-menu-item{
+	flex-grow: 1;
+	transition: color 0.4s;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 4px;
+	align-self: center;
+}
+.nav-menu-header{
+	flex-grow: 1;
+	text-align: center;
+	font-family: Lobster, cursive
+}
+
+.nav-menu-item:hover{
+	color: rgba(245,182,163,1);
+	background: radial-gradient(circle closest-corner at 45% 20px, rgba(40, 20, 10, 1), rgba(20, 10, 5, 1))
+}
+
+.nav-thing{
+	flex-grow: 1;
+	font-size: 9px;
+	align-self: center;
+	border-right: solid white 1px;
+	border-left: solid white 1px;
+	text-align: center;
+	padding: 2px;
+}
+
+/* landing styles */
+
+.landing{
+	background-blend-mode: darken;
+	color: rgba(0,0,0,0);
+	font-family: Spectral, serif;
+	text-rendering: optimizeLegibility;
+
+}
+
+.landingTitleHolder{
+	position: relative;
+	display: block;
+	width: 60%;
+	top: 12vh;
+	margin: auto;
+	text-align: center;
+	transform: rotate(-10deg);
+
+}
+
+.landingTitle{
+	font-size: 9vw;
+	line-height: 8vw;
+	font-family: Lobster, cursive;
+	font-weight: normal;
+	transition: color 2s;
+	transition-delay: .5s;
+}
+
+.tagline{
+	transition: color 2s;
+	transition-delay: 1s;
+	font-size: 11pt;
+	line-height: 5vw;
+}
+
+.flexDad-nowrap p{
+	font-size: smaller;
+
+}
+
+.tinies{
+	transition: color 2s;
+	transition-delay: 2s;
+	line-height: 3vh;
+	padding: 6px;
+	text-align: center;
+	color: transparent;
+}
+
+.halfLine{
+	height: 2px;
+	border-bottom: solid 1px;
+	margin: auto;
+	transition: width 2s;
+	transition-delay: 1s;
+	width: 0px;
+	color: white;
+}
+
+
+
+/*  About Styles */
+
+.about{
+	border: double black 4px;
+	font-family: Spectral, serif;
+	line-height: 17px;
+	min-height: 100vh;
+
+}
+
+.division{
+	border-top: solid rgba(69,34,23,0.4) 2px;
+	border-bottom: solid rgba(69,34,23,0.4) 2px;
+	height: 22.5vh;
+	display: block;
+	width: 85%;
+	margin: auto;
+	border-radius: 12%;
+}
+
+.division::before{
+	content: "About us";
+	line-height: 8vh;
+	font-size: 5vh;
+	vertical-align: sub;
+	border: solid silver 1px;
+	height: 16vh;
+	width: 16vh;
+	position: relative;
+	border-radius: 100%;
+	margin: auto;
+	display: block;
+	top: 3vh;
+	background-color: rgba(250,250,250,0.7);
+	text-align: center;
+	font-family: Lobster, cursive
+}
+.division::after{
+	content: "";
+	border: double white 3px;
+	height: 20vh;
+	width: 20vh;
+	position: relative;
+	border-radius: 100%;
+	margin: auto;
+	display: block;
+	top: -15.5vh;
+	background-color: rgba(145,82,63,0.4);
+	z-index: -10;
+}
+
+/* menu styles */
+
+
+.menu{
+	background-blend-mode: darken;
+	background-color: white;
+	color: white;
+	height: 100%;
+	font-family: Spectral
+}
+
+.menuCat{
+	padding-bottom: 1%;
+	background-color: rgba(86,76,67,0.6);
+	border: solid black 2px;
+}
+
+.menuHeading{
+	text-align: center;
+	text-decoration: underline;
+}
+
+.menu h2{
+	text-decoration: underline;
+	font-size: xx-large;
+}
+
+.menu h3{
+	font-size: x-large;
+}
+
+.headingDesc{
+	width: 60%;
+	font-style: italic;
+	margin: auto;
+	font-size: 10px;
+	padding: 1%;
+	border-bottom: dotted white 1px;
+}
+
+/* Menu Option Styles  */
+.menuOption{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-left: 1%;
+}
+.itemName{
+	width: 70%;
+	border-bottom: dotted white 1px;
+	flex-grow: 1;
+}
+
+.itemPrice{
+	width: 25%;
+	border-bottom: dotted white 1px;
+	text-align: right;
+	padding-right: 2%;
+}
+
+.itemDesc{
+	width: 100%;
+	font-size: 60%;
+	font-style: italic;
+	max-width: 400px;
+}
+
+/* side by side styles */
+
+.sideBySide{
+	display: flex;
+	flex-wrap: wrap;
+	border: solid rgba(145,82,63,0.6) 54px;
+	border-left: none;
+	border-right: none;
+}
+
+.sideBySide h2{
+	font-size: 4.5vw;
+	text-align: center;
+	border-bottom: solid rgba(16,68,54,0.5) 10px;
+}
+
+.side{
+	padding: 2%;
+	align-content: center;
+	min-width: 150px;
+	flex-grow: 1;
+}
+
+.side p {
+	font-size: smaller;
+	flex-grow: 1;
+}
+
+.left{
+	width: 30%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	border-right: dashed rgba(145,82,63,0.4) 1px;
+}
+
+.right{
+	width: 60%;
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+
+/* pointlessPhoto */
+
+.pointlessPhoto{
+	background-attachment: scroll;
+	border-bottom: solid black 2px;
+}
+
+/*  Contact */
+
+.contact{
+	border-left: solid rgba(145,82,63,0.4) 20px;
+	border-right: solid rgba(145,82,63,0.4) 20px;
+}
+
+.spaceAbove{
+	padding-top: 5vh;
+}
+
+.socialMedia{
+	width: 100%;
+	justify-content: center;
+}
+
+.contactDetails{
+	justify-content: space-around;
+	text-decoration: underline;
+	flex-grow: 2;
+	width: 60%;
+}
+
+.smoosh h3{
+	align-self: flex-end;
+	flex-grow: 1;
+
+}
+
+/* Footer Styles */
+
+footer{
+	background-color: rgba(20, 10, 5, 1);
+	border-top: solid rgba(145,82,63,0.4) 4px;
+	color: rgba(230,220,220,1);
+}
+
+footer a{
+	color: rgba(230,220,220,0.7);
+}
+
+footer a:hover{
+	color: rgba(230,220,220,1);
+}
+
+footer p{
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.footerText{
+	border: dashed rgba(230,220,220,.7) 1px;
+	padding: 1%;
+}
+
+.footerText p {
+	margin: 0px;
+	font-size: 11px;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 600px){
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.bigCaption,
+	.sideBySide h2{
+		font-size: 25px;
+	}
+	nav *{
+		font-size: 12px;
+	}
+	.nav-thing{
+		display: none;
+	}
+
+	nav{
+		top: 0px;
+	}
+}
+
