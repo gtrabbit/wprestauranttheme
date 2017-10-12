@@ -6,7 +6,7 @@
 
 	<section class="menu fullSizeBackground"  data-type="background" data-speed="5" data-offset="180" id="menu" data-url="<?php echo $menu_background['url']; ?>" >
 	<br><br><br>
-		<h2 class="centered"> <?php echo $menu_title); ?> </h2>
+		<h2 class="centered"> <?php echo $menu_title; ?> </h2>
 		<p class="headingDesc centered"> <?php echo get_field('general_menu_description'); ?> 	  </p>
 		<div class="flexDad">
 
