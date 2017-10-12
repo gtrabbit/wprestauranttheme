@@ -7,8 +7,9 @@
 	$about_title 	= get_field('about_title');
 	$gallery_title 	= get_field('gallery_title');
 	$contact_title 	= get_field('contact_title');
+	$landingbackground = get_field('landing_background');
  ?>
-	<section class="landing fullPage fullSizeBackground" id="landing"  data-type="background" data-speed="5" data-offset="0" data-url="<?php echo get_field('landing_background')['url']; ?>" >
+	<section class="landing fullPage fullSizeBackground" id="landing"  data-type="background" data-speed="5" data-offset="0" data-url="<?php echo $landingbackground['url']; ?>" >
 		<div class="landingTitleHolder" id="landingTitleHolder">
 			<h1 class="landingTitle" id="title">
 				 <?php bloginfo('name') ?>

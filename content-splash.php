@@ -1,5 +1,9 @@
+<?php 
+	$backdrop = get_field('backdrop');
+ ?>
 
-	<section id="pointLessPhoto" class="fullSizeBackground pointlessPhoto fullPage" data-image="<?php echo get_field('backdrop')['url']; ?>">
+
+	<section id="pointLessPhoto" class="fullSizeBackground pointlessPhoto fullPage" data-image="<?php echo $backdrop['url']; ?>">
 		<div class="flexDad fvAlign fullPage">
 		<?php 
 		$headerText = get_field('header');
