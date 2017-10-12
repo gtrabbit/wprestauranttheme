@@ -100,7 +100,7 @@
 			$googlePlus = get_field('google_plus_link');
 			$pinterest 	= get_field('pinterest_link');
 		 ?>
-		<?php if (!empty($twitter || $facebook || $instagram || $googlePlus)): ?>
+		<?php if (!empty($twitter) || !empty($facebook) || !empty($instagram) || !empty($googlePlus)): ?>
 		<div class="fullWidth alignBot">
 		<br><br>
 		
