@@ -75,7 +75,7 @@
 			$altPhone = get_field('alt_phone');
 			$email = get_field('contact_email');
 			 ?>
-		<?php if(!empty($phone || $email || $altPhone)): ?>
+		<?php if(!empty($phone) || !empty($email) || !empty($altPhone)): ?>
 
 			<div class="flexDad smoosh fullWidth card">
 				<h3 class="centerBlock centered">Get in Touch</h3>
