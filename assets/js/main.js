@@ -1,8 +1,6 @@
 window.onload = function(){
 	document.getElementById('menu').style.backgroundImage = 'url(' + document.getElementById("menu").dataset.url + '), linear-gradient(to bottom, black, white)';
-	console.log(document.getElementById('landing').dataset.url)
 	document.getElementById('landing').style.backgroundImage = 'url(' + document.getElementById('landing').dataset.url + '), radial-gradient(ellipse farthest-corner at 45% 45%, rgba(80,60,40,0.8), rgba(0,0,0,1))';
-	console.log(document.getElementById('landing').style.background)
 	let paraEls = Array.from(document.querySelectorAll('section[data-type="background"]'))
 	let header = document.getElementsByClassName('nav-menu')[0];
 	makeScrolly(paraEls, header);
@@ -14,7 +12,8 @@ const makeScrolly = function(paraEls, header){
 	let height = window.innerHeight;
 	window.onscroll = () => {
 		paraEls.forEach( (el) => {
-			let yPos = -(document.body.scrollTop / el.dataset.speed ) + Number(el.dataset.offset);
+			value = (window.pageYOffset - el.offsetTop + window.innerHeight)
+			let yPos = -(value / 8);
 			let coords = '50% ' + yPos + 'px';
 			el.style.backgroundPosition = coords;
 		})	
