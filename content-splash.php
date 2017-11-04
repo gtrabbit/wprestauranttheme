@@ -4,7 +4,7 @@
 
 
 	<section id="pointLessPhoto" class="fullSizeBackground pointlessPhoto fullPage" data-image="<?php echo $backdrop['url']; ?>">
-		<div class="flexDad fvAlign fullPage">
+		<div class="flexDad fvAlign">
 		<?php 
 		$headerText = get_field('header');
 		if (!empty($headerText)): ?>
