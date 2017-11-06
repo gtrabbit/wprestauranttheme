@@ -483,6 +483,7 @@ p{
 	box-sizing: border-box;
 	height: auto;
 	justify-content: space-around;
+	width: 100%;
 }
 
 .small{
